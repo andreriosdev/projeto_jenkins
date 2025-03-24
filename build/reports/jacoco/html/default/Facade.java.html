@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Facade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Facade.java</span></div><h1>Facade.java</h1><pre class="source lang-java linenums">// Subsistema: Amplifier
+<span class="nc" id="L2">class Amplifier {</span>
+    public void on() {
+<span class="nc" id="L4">        System.out.println(&quot;Amplificador ligado.&quot;);</span>
+<span class="nc" id="L5">    }</span>
+}
+
+// Subsistema: DVDPlayer
+<span class="nc" id="L9">class DVDPlayer {</span>
+    public void on() {
+<span class="nc" id="L11">        System.out.println(&quot;DVD player ligado.&quot;);</span>
+<span class="nc" id="L12">    }</span>
+
+    public void play(String movie) {
+<span class="nc" id="L15">        System.out.println(&quot;Reproduzindo o filme: &quot; + movie);</span>
+<span class="nc" id="L16">    }</span>
+}
+
+// Subsistema: Projector
+<span class="nc" id="L20">class Projector {</span>
+    public void on() {
+<span class="nc" id="L22">        System.out.println(&quot;Projetor ligado.&quot;);</span>
+<span class="nc" id="L23">    }</span>
+}
+
+// Facade: HomeTheaterFacade
+class HomeTheaterFacade {
+    private Amplifier amp;
+    private DVDPlayer dvd;
+    private Projector projector;
+
+<span class="nc" id="L32">    public HomeTheaterFacade(Amplifier amp, DVDPlayer dvd, Projector projector) {</span>
+<span class="nc" id="L33">        this.amp = amp;</span>
+<span class="nc" id="L34">        this.dvd = dvd;</span>
+<span class="nc" id="L35">        this.projector = projector;</span>
+<span class="nc" id="L36">    }</span>
+
+    public void watchMovie(String movie) {
+<span class="nc" id="L39">        System.out.println(&quot;Preparando para assistir ao filme...&quot;);</span>
+<span class="nc" id="L40">        amp.on();</span>
+<span class="nc" id="L41">        dvd.on();</span>
+<span class="nc" id="L42">        projector.on();</span>
+<span class="nc" id="L43">        dvd.play(movie);</span>
+<span class="nc" id="L44">    }</span>
+}
+
+// Classe principal com método main
+<span class="fc" id="L48">public class Facade {</span>
+    public static void main(String[] args) {
+        // Cria os componentes do subsistema
+<span class="nc" id="L51">        Amplifier amp = new Amplifier();</span>
+<span class="nc" id="L52">        DVDPlayer dvd = new DVDPlayer();</span>
+<span class="nc" id="L53">        Projector projector = new Projector();</span>
+
+        // Cria o Facade
+<span class="nc" id="L56">        HomeTheaterFacade homeTheater = new HomeTheaterFacade(amp, dvd, projector);</span>
+
+        // Usa o Facade para assistir a um filme
+<span class="nc" id="L59">        homeTheater.watchMovie(&quot;O Poderoso Chefão&quot;);</span>
+<span class="nc" id="L60">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

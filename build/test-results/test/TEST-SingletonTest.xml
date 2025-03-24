@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SingletonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-03-24T22:37:04" hostname="CyberOps" time="0.005">
+  <properties/>
+  <testcase name="testInstanciaUnica()" classname="SingletonTest" time="0.005"/>
+  <system-out><![CDATA[Instância Singleton criada.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

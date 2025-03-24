@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Client.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Client.java</span></div><h1>Client.java</h1><pre class="source lang-java linenums">// Interface Prototype
+interface Prototype {
+    Prototype clone();
+}
+
+// Classe ConcretePrototype
+class ConcretePrototype implements Prototype {
+    private String name;
+
+<span class="nc" id="L10">    public ConcretePrototype(String name) {</span>
+<span class="nc" id="L11">        this.name = name;</span>
+<span class="nc" id="L12">    }</span>
+
+    @Override
+    public Prototype clone() {
+<span class="nc" id="L16">        return new ConcretePrototype(this.name);</span>
+    }
+
+    public String getName() {
+<span class="nc" id="L20">        return name;</span>
+    }
+}
+
+// Classe Cliente
+<span class="nc" id="L25">public class Client {</span>
+    public static void main(String[] args) {
+        // Cria um protótipo
+<span class="nc" id="L28">        ConcretePrototype prototype = new ConcretePrototype(&quot;Original&quot;);</span>
+
+        // Clona o protótipo
+<span class="nc" id="L31">        ConcretePrototype clone = (ConcretePrototype) prototype.clone();</span>
+
+        // Verifica se os objetos são diferentes, mas têm o mesmo conteúdo
+<span class="nc" id="L34">        System.out.println(&quot;Prototype: &quot; + prototype.getName());</span>
+<span class="nc" id="L35">        System.out.println(&quot;Clone: &quot; + clone.getName());</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        System.out.println(&quot;São o mesmo objeto? &quot; + (prototype == clone));</span>
+<span class="nc" id="L37">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
